@@ -1,0 +1,133 @@
+# Clueso.ai Inspired AI Assistant 🚀  
+### Assignment Submission – Full Stack Application
+
+## 📌 Overview
+This project is a **Clueso.ai–inspired AI assistant**, built as part of an assignment.
+While inspired by Clueso.ai’s concept, this implementation introduces
+custom UI enhancements and interaction flow to make the experience more
+engaging and intuitive.
+
+The application demonstrates a complete **end-to-end user flow** —
+from entering a prompt to receiving an AI-style response — using a
+full-stack architecture.
+
+---
+
+## ✨ Key Highlights
+- Clueso.ai–like conversational interface
+- Clean and attractive UI with custom enhancements
+- Real-time prompt → response flow
+- Full Stack implementation (Frontend + Backend)
+- Clear separation of concerns between UI and server logic
+- Assignment-focused, scalable architecture
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React.js
+- JavaScript (ES6+)
+- CSS 
+- Axios (API communication)
+
+### Backend
+- Node.js
+- Express.js
+- REST API architecture
+
+---
+
+## ⚙️ Setup & Installation
+
+### Prerequisites
+- Node.js 
+- npm 
+
+### ♦️ Frontend 
+
+cd my-app
+npm install 
+npm start
+
+### 🔹 Backend Setup
+```bash
+cd backend
+npm install
+npm start
+
+## 🔄 Application Flow
+
+1. **User Registration & Login**
+   - New users can register using the registration form
+   - Existing users can log in using valid credentials
+   - On successful login, a JWT token is generated
+
+2. **JWT-Based Authentication**
+   - JWT token is securely stored on the client side
+   - Protected routes are accessible only to authenticated users
+   - Unauthorized users are redirected to the login page
+
+3. **Home Dashboard**
+   - After authentication, the user is redirected to the Home page
+   - The dashboard displays all submitted feedback
+   - If no feedback exists, a clear message is shown: *“No feedback available”*
+
+4. **Feedback Management**
+   - Feedback is displayed in a card-based layout
+   - Each feedback item includes:
+     - Feedback content
+     - Category (Bug / Improvement / Other)
+     - Priority (High / Normal)
+     - Created timestamp
+   - Users can:
+     - Edit feedback
+     - Delete feedback
+     - Update category and priority
+
+5. **Automatic Priority Assignment**
+   - Priority is intelligently assigned while submitting feedback
+   - Based on the feedback content, priority is set as **High** or **Normal**
+
+6. **Analytics & Visualization**
+   - Category graph shows:
+     - Number of Bugs
+     - Improvements
+     - Other feedback
+   - Timeline graph displays:
+     - Feedback count added over time
+     - Priority distribution across time
+
+7. **Real-Time UI Updates**
+   - Dashboard updates immediately after feedback is added, edited, or deleted
+   - Ensures smooth and consistent user experience
+
+## 🧠 Architecture Overview
+
+- **Frontend (React.js)**
+  - Handles UI rendering and user interactions
+  - Manages authentication state and protected routes
+  - Displays feedback cards, graphs, and dashboard analytics
+
+- **Backend (Node.js + Express.js)**
+  - Manages user authentication using JWT
+  - Handles CRUD operations for feedback
+  - Applies logic for feedback categorization and priority assignment
+  - Exposes REST APIs consumed by the frontend
+
+- **Security**
+  - JWT-based authentication for all protected routes
+  - Token validation on every authorized request
+
+## ✨ Key Features
+
+- User registration and login with JWT authentication
+- Protected dashboard access
+- Feedback creation, editing, and deletion
+- Automatic priority assignment (High / Normal)
+- Feedback categorization (Bug, Improvement, Other)
+- Card-based feedback display
+- Analytics dashboard with:
+  - Category-based graphs
+  - Timeline-based feedback visualization
+- Clean, responsive, and intuitive UI

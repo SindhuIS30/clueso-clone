@@ -1,0 +1,106 @@
+/* Container center */
+.edit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Card style */
+.edit-card {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Heading */
+.edit-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Error message */
+.error-text {
+  color: #d93025;
+  background-color: #fce8e6;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Form fields */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.edit-form input,
+.edit-form select,
+.edit-form textarea {
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.edit-form input:focus,
+.edit-form select:focus,
+.edit-form textarea:focus {
+  border-color: #ff7bac;
+}
+
+/* Button group */
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.update-btn {
+  flex: 1;
+  padding: 10px 15px;
+  background-color: #ff7bac;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.update-btn:hover {
+  background-color: #ff4f91;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 10px 15px;
+  background-color: #ccc;
+  color: #333;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancel-btn:hover {
+  background-color: #999;
+}
