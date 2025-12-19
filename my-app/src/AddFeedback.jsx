@@ -13,6 +13,7 @@ const AddFeedback = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [priority, setPriority] = useState("Normal")
+ // const [feedbackText, setFeedbackText] = useState("")
   const navigate = useNavigate();
  
   const predictPriority = (text) => {
@@ -94,6 +95,37 @@ const AddFeedback = () => {
     return <div className="loading">Loading...</div>;
   }
 
+
+  const startListening = () => {
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    alert("Speech Recognition not supported in this browser");
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.onresult = (event) => {
+    const spokenText = event.results[0][0].transcript;
+
+    setDescription((prev) =>
+      prev ? prev + " " + spokenText : spokenText
+    );
+  };
+
+  recognition.onerror = (event) => {
+    console.error("Speech recognition error:", event.error);
+  };
+
+  recognition.start();
+};
+ 
+
   return (
     <div className="add-container">
       <div className="add-card">
@@ -132,8 +164,14 @@ const AddFeedback = () => {
               rows="4"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Describe your feedback"
+              placeholder="Type or Speak your feedback"
             />
+            
+
+<button type="button" onClick={startListening}>
+  🎤 Speak
+</button>
+
           </div>
 
           <div className={`priority-box ${priority.toLowerCase()}`}>

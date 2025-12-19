@@ -129,6 +129,22 @@ const timelineData = (() => {
   );
 }
 
+const speakText = (text) => {
+  if (!window.speechSynthesis) {
+    alert("Text to Speech not supported in this browser");
+    return;
+  }
+
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US";
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  window.speechSynthesis.cancel(); // stop previous speech
+  window.speechSynthesis.speak(speech);
+};
+
+
   return (
     <div className="home-container">
       {auth ? (
@@ -253,6 +269,11 @@ const timelineData = (() => {
   >
     Delete
   </button>
+
+  <button onClick={() => fb.description && speakText(fb.description)} title="Read feedback">
+  🔊
+</button>
+
 </div>
 
                   </div>
