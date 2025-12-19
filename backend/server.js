@@ -3,6 +3,7 @@ import cors from "cors";
 import mysql from "mysql2";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 const salt = 10;
 
@@ -18,12 +19,13 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+dotenv.config();
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "sindhu@123",
-  database: "cluesoDB",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 db.connect((err) => {
@@ -58,7 +60,7 @@ const verifyUser = (req, res, next) => {
   if (!token) {
     return res.json({ Error: "Token is not valid" });
   } else {
-    jwt.verify(token, "jwt-secret-key", (err, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) {
         return res.json({ Error: "Token is not valid" });
       } else {
@@ -195,7 +197,7 @@ app.post("/login", (req, res) => {
           if (response) {
             const id = data[0].id;
             const name = data[0].name;
-            const token = jwt.sign({ id, name }, "jwt-secret-key", {
+            const token = jwt.sign({ id, name }, process.env.JWT_SECRET, {
               expiresIn: "1d",
             });
             res.cookie("token", token, {
